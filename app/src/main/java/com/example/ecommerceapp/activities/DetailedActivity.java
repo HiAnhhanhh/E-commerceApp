@@ -2,6 +2,7 @@ package com.example.ecommerceapp.activities;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.os.Bundle;
 import android.view.View;
@@ -36,6 +37,8 @@ public class DetailedActivity extends AppCompatActivity {
     int totalQuantity = 1;
     int totalPrice = 0;
 
+    Toolbar toolbar;
+
 
     NewProductsModel newProductsModel = null;
     PopularProductsModel popularProductsModel = null;
@@ -50,6 +53,10 @@ public class DetailedActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detailed);
+
+        toolbar = findViewById(R.id.detailed_tool);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
 
         detailedImg = findViewById(R.id.detailed_img);

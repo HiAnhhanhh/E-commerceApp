@@ -6,6 +6,18 @@
     android:layout_height="match_parent"
     tools:context=".activities.ShowAllActivity">
 
+    <androidx.appcompat.widget.Toolbar
+        android:theme="?attr/actionBarTheme"
+        android:background="@color/blue"
+        android:minHeight="?attr/actionBarSize"
+        app:title="@string/my_cart"
+        android:id="@+id/toolbar_myCart"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rec_ShowAll"
         android:layout_width="match_parent"
@@ -13,6 +25,6 @@
         android:padding="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/toolbar_myCart" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

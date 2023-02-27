@@ -31,4 +31,7 @@
     <string name="_4_0">4.0</string>
     <string name="woman_t_shirt">Woman T-Shirt</string>
     <string name="_40">40</string>
+    <string name="my_cart">My Cart</string>
+    <string name="total_price_40">Total Price : 40$</string>
+    <string name="current_date">Current Date</string>
 </resources>

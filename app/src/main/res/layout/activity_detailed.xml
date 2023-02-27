@@ -16,6 +16,18 @@
         android:scaleType="centerCrop"
         android:src="@drawable/ic_launcher_background"/>
 
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/detailed_tool"
+        app:title="Product Detailed"
+        android:background="@drawable/foreground_design"
+        android:layout_width="match_parent"
+        app:titleTextColor="@color/white"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
     <androidx.cardview.widget.CardView
         android:translationY="-50dp"
         android:id="@+id/cardView"
@@ -166,7 +178,7 @@
         android:text="@string/add_to_cart"
         android:textAllCaps="false"
         android:textStyle="bold"
-        android:backgroundTint="@color/pink"
+        android:background="@color/pink"
         android:drawableTint="@color/white"
         android:padding="14dp"
         android:drawableStart="@drawable/ic_baseline_add_shopping_cart_24"
@@ -177,11 +189,11 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:drawableStart="@drawable/ic_baseline_shopping_cart_24"
-        android:drawableTint="@color/white"
+        android:drawableTint="@color/black"
         android:padding="14dp"
         android:background="@color/blue"
         android:textSize="16sp"
-        android:textColor="@color/white"
+        android:textColor="@color/black"
         android:text="@string/buy_now"
         android:textAllCaps="false"
         android:textStyle="bold"
