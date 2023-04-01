@@ -34,4 +34,18 @@
     <string name="my_cart">My Cart</string>
     <string name="total_price_40">Total Price : 40$</string>
     <string name="current_date">Current Date</string>
+    <string name="your_address">Your Address</string>
+    <string name="create_address">Create Address</string>
+    <string name="address_lane">Address Lane</string>
+    <string name="city">City</string>
+    <string name="postal_code">Postal Code</string>
+    <string name="phone_number">Phone Number</string>
+    <string name="add_address">Add Address</string>
+    <string name="continue_to_payment">Continue To Payment</string>
+    <string name="us_california">US California</string>
+    <string name="shipping">Shipping</string>
+    <string name="_0">$ 0</string>
+    <string name="total">Total</string>
+    <string name="_00">$ 00</string>
+    <string name="check_out">Check Out</string>
 </resources>

@@ -3,7 +3,9 @@ package com.example.ecommerceapp.models;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-public class CategoryModel {
+import java.io.Serializable;
+
+public class CategoryModel  {
 
     String name;
     String img_url;

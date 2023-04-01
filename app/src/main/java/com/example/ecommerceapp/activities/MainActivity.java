@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
         homeFragment = new HomeFragment();
         loadFragment(homeFragment);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(false);
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_baseline_menu_24);
 
     }

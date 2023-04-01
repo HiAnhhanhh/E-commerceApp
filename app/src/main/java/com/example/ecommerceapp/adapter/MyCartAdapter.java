@@ -1,12 +1,14 @@
 package com.example.ecommerceapp.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.ecommerceapp.R;
@@ -18,8 +20,15 @@ import java.util.List;
 
 public class MyCartAdapter extends RecyclerView.Adapter<MyCartAdapter.ViewHolder> {
 
+    int totalAmount =0;
+
     Context context;
     List<MyCartModel> list;
+
+    public MyCartAdapter(Context context, List<MyCartModel> list) {
+        this.context = context;
+        this.list = list;
+    }
 
     @NonNull
     @Override
@@ -30,8 +39,18 @@ public class MyCartAdapter extends RecyclerView.Adapter<MyCartAdapter.ViewHolder
     @Override
     public void onBindViewHolder(@NonNull MyCartAdapter.ViewHolder holder, int position) {
         holder.currentTime.setText(list.get(position).getCurrentTime());
+        holder.currentDate.setText(list.get(position).getCurrentDate());
+        holder.productName.setText(list.get(position).getProductName());
+        holder.productPrice.setText(list.get(position).getProductPrice());
+        holder.totalQuantity.setText(list.get(position).getTotalQuantity());
+        holder.totalPrice.setText(String.valueOf(list.get(position).getTotalPrice()));
 
+        // Total amount Add to Cart Activity
 
+        totalAmount = totalAmount + list.get(position).getTotalPrice();
+        Intent intent = new Intent("MyTotalAmount");
+        intent.putExtra("totalAmount", totalAmount);
+        LocalBroadcastManager.getInstance(context).sendBroadcast(intent);
     }
 
     @Override

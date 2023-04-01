@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -13,6 +14,7 @@ import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.example.ecommerceapp.R;
+import com.example.ecommerceapp.models.CategoryModel;
 import com.example.ecommerceapp.models.NewProductsModel;
 import com.example.ecommerceapp.models.PopularProductsModel;
 import com.example.ecommerceapp.models.ShowAllModel;
@@ -43,6 +45,8 @@ public class DetailedActivity extends AppCompatActivity {
     NewProductsModel newProductsModel = null;
     PopularProductsModel popularProductsModel = null;
     ShowAllModel showAllModel = null ;
+
+    CategoryModel categoryModel = null;
 
 
     FirebaseAuth auth;
@@ -80,9 +84,11 @@ public class DetailedActivity extends AppCompatActivity {
             popularProductsModel = (PopularProductsModel) obj;
         }else if (obj instanceof  NewProductsModel){
             newProductsModel = (NewProductsModel) obj;
-        }else if(obj instanceof ShowAllModel){
+        }else if(obj instanceof ShowAllModel) {
             showAllModel = (ShowAllModel) obj;
         }
+
+
 
         if (newProductsModel != null){
             Glide.with(getApplicationContext()).load(newProductsModel.getImg_url()).into(detailedImg);
@@ -115,6 +121,24 @@ public class DetailedActivity extends AppCompatActivity {
             totalPrice = showAllModel.getPrice() * totalQuantity;
         }
 
+        buyNow.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent= new Intent(DetailedActivity.this, AddressActivity.class);
+
+               if (newProductsModel != null){
+                   intent.putExtra("item", newProductsModel);
+               }
+               if (showAllModel != null){
+                    intent.putExtra("item", showAllModel);
+               }
+               if (popularProductsModel != null){
+                    intent.putExtra("item", popularProductsModel);
+               }
+               startActivity(intent);
+            }
+        });
+
         addToCard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -128,15 +152,15 @@ public class DetailedActivity extends AppCompatActivity {
                 if(totalQuantity < 10){
                     totalQuantity++;
                     quantity.setText(String.valueOf(totalQuantity));
-//                    if(newProductsModel != null){
-//                        totalPrice = newProductsModel.getPrice() * totalQuantity;
-//                    }
-//                    if(popularProductsModel != null){
-//                        totalPrice = popularProductsModel.getPrice() * totalQuantity;
-//                    }
-//                    if(showAllModel != null){
-//                        totalPrice = showAllModel.getPrice() * totalQuantity;
-//                    }
+                    if(newProductsModel != null){
+                        totalPrice = newProductsModel.getPrice() * totalQuantity;
+                    }
+                    if(popularProductsModel != null){
+                        totalPrice = popularProductsModel.getPrice() * totalQuantity;
+                    }
+                    if(showAllModel != null){
+                        totalPrice = showAllModel.getPrice() * totalQuantity;
+                    }
                 }
             }
         });
@@ -165,7 +189,7 @@ public class DetailedActivity extends AppCompatActivity {
 
         final HashMap <String,Object> cartMap = new HashMap<>();
         cartMap.put("productName", name.getText().toString());
-        cartMap.put("producePrice", price.getText().toString());
+        cartMap.put("productPrice", price.getText().toString() + "$");
         cartMap.put("currentTime", saveCurrentTime);
         cartMap.put("currentDate", saveCurrentDate);
         cartMap.put("totalQuantity", quantity.getText().toString());
@@ -181,5 +205,8 @@ public class DetailedActivity extends AppCompatActivity {
                         finish();
                     }
                 });
+
+
+
     }
 }

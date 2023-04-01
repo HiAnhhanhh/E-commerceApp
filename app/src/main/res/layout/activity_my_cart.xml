@@ -11,7 +11,7 @@
         android:background="@color/blue"
         android:minHeight="?attr/actionBarSize"
         app:title="@string/my_cart"
-        android:id="@+id/myCart_toobar"
+        android:id="@+id/my_cart_toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
@@ -19,7 +19,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/total_amount"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
@@ -32,16 +32,37 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/myCart_toobar"
+        app:layout_constraintTop_toBottomOf="@+id/my_cart_toolbar"
         app:layout_constraintWidth_percent=".9" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/cart_rec"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        app:layout_constraintVertical_bias=".01"
+        android:layout_height="520dp"
         android:layout_marginTop="10sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView3" />
+        app:layout_constraintTop_toBottomOf="@+id/total_amount" />
+
+    <Button
+        android:id="@+id/Buy_now"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@color/blue"
+        android:drawableStart="@drawable/ic_baseline_shopping_cart_24"
+        android:drawableTint="@color/black"
+        android:padding="14dp"
+        android:text="@string/buy_now"
+        android:textAllCaps="false"
+        android:layout_marginTop="10dp"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/cart_rec"
+        app:layout_constraintTop_toBottomOf="@+id/cart_rec"
+        app:layout_constraintWidth_percent=".9" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

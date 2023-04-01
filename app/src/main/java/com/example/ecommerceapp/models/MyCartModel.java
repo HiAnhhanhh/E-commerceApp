@@ -6,15 +6,18 @@ public class MyCartModel {
     private String productName;
     private String productPrice;
     private int totalPrice;
-    private int totalQuantity;
+    private String totalQuantity;
 
-    public MyCartModel(String currentDate, String currentTime, String productName, String productPrice, int totalPrice, int totalQuantity) {
+    public MyCartModel(String currentDate, String currentTime, String productName, String productPrice, int totalPrice, String totalQuantity) {
         this.currentDate = currentDate;
         this.currentTime = currentTime;
         this.productName = productName;
         this.productPrice = productPrice;
         this.totalPrice = totalPrice;
         this.totalQuantity = totalQuantity;
+    }
+
+    public MyCartModel() {
     }
 
     public String getCurrentDate() {
@@ -57,11 +60,11 @@ public class MyCartModel {
         this.totalPrice = totalPrice;
     }
 
-    public int getTotalQuantity() {
+    public String getTotalQuantity() {
         return totalQuantity;
     }
 
-    public void setTotalQuantity(int totalQuantity) {
+    public void setTotalQuantity(String totalQuantity) {
         this.totalQuantity = totalQuantity;
     }
 }
